@@ -1,0 +1,82 @@
+<%= form_for(@visitor) do |f| %>
+  <% if @visitor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@visitor.errors.count, "error") %> prohibited this visitor from being saved:</h2>
+
+      <ul>
+      <% @visitor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+      <div class="col-sm-6 text-right">
+        <%= f.label :first_name %>:
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="col-sm-6 text-left">
+        <%= f.label :last_name %>:
+        <%= f.text_field :last_name %>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right">
+      <%= f.label :phone %>:
+      <%= f.text_field :phone %>
+    </div>
+    <div class="col-sm-6 text-left">
+      <%= f.label :email %>:
+      <%= f.text_field :email %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right">
+      <%= f.label :street_address %>:
+      <%= f.text_field :street_address %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right">
+      <%= f.label :city %>:
+      <%= f.text_field :city %>
+    </div>
+    <div class="col-sm-6 text-left">
+      <%= f.label :state %>:
+      <%= f.text_field :state %>
+      <%= f.label :zip %>:
+      <%= f.text_field :zip %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-7 text-right">
+      <%= f.label "Marital Status:" %>
+      <%= f.label "Married" %>
+      <%= f.radio_button :marital_status, true %>
+      <%= f.label "Single" %>
+      <%= f.radio_button :marital_status, false %>
+    </div>
+  </div>
+
+  <div class="col-sm-9 col-sm-offset-3 text-left">
+    <%= f.label "Is this your first time visiting our church?" %>:
+    <%= f.check_box :first_time_visitor %>
+  </div>
+  <div class="col-sm-9 col-sm-offset-3 text-left">
+    <%= f.label "Would you like more info about our confession?" %>:
+    <%= f.check_box :more_info_requested %>
+  </div>
+  <div class="col-sm-9 col-sm-offset-3 text-left">
+    <%= f.label "Have you recently moved to the area?" %>:
+    <%= f.check_box :new_to_area %>
+  </div>
+  <div class="col-sm-9 col-sm-offset-3 text-left">
+    <%= f.label "Would you like to meet with one of our elders?" %>:
+    <%= f.check_box :visit_requested %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Sign Guest Book" %>
+  </div>
+<% end %>
